@@ -92,7 +92,7 @@ public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewI
 
         @Override
         public boolean onItemImageLongClick(Context context, ImageView imageView, int index, List<String> list) {
-            Toast.makeText(context, "长按的了图片" + index, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "长按了图片" + index, Toast.LENGTH_LONG).show();
             return super.onItemImageLongClick(context, imageView, index, list);
         }
     };
