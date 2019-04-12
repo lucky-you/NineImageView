@@ -34,7 +34,6 @@ public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewI
         this.mContent = mContent;
     }
 
-
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
