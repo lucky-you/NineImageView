@@ -22,22 +22,22 @@ import java.util.List;
 /**
  * author      : Z_B
  * date       : 2018/3/7
- * function  :
+ * function  : 九宫格图片的adapter  九宫格图片显示  不能直接使用List<String> 类型的集合作为图片的数据源
  */
 public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewImageAdapter.ImageViewHolder> {
 
     private List<NineImageList> imageList;
-    private Context mContent;
+    private Context mContext;
 
-    public NineGridViewImageAdapter(List<NineImageList> imageList, Context mContent) {
+    public NineGridViewImageAdapter(List<NineImageList> imageList, Context mContext) {
         this.imageList = imageList;
-        this.mContent = mContent;
+        this.mContext = mContext;
     }
 
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ImageViewHolder(View.inflate(mContent, R.layout.include_nine_image_item_view, null));
+        return new ImageViewHolder(View.inflate(mContext, R.layout.include_nine_image_item_view, null));
     }
 
     @Override
@@ -59,7 +59,7 @@ public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewI
             super(itemView);
             nineImageContent = itemView.findViewById(R.id.nineGridView);
             tvContent = itemView.findViewById(R.id.tvContent);
-            nineImageContent.setAdapter(mAdapter);
+            nineImageContent.setAdapter(mAdapter); //先setAdapter 然后再setImagesData
         }
 
         public void bind(int position) {
@@ -71,13 +71,13 @@ public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewI
     private NineGridImageViewAdapter<String> mAdapter = new NineGridImageViewAdapter<String>() {
         @Override
         public void onDisplayImage(Context context, ImageView imageView, String s) {
-            Glide.with(mContent).load(s).into(imageView);
+            Glide.with(mContext).load(s).into(imageView);
         }
 
         @Override
         public ImageView createImageView(Context context) {
             //不使用默认的图片
-            RoundImageView roundImageView = new RoundImageView(mContent);
+            RoundImageView roundImageView = new RoundImageView(mContext);
             roundImageView.setType(RoundImageView.TYPE_ROUND);
             roundImageView.setCornerRadius(4);
             return roundImageView;

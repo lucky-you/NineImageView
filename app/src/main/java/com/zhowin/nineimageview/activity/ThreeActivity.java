@@ -2,14 +2,15 @@ package com.zhowin.nineimageview.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.zhowin.nineimageview.R;
 import com.zhowin.nineimageview.adapter.SecondListAdapter;
+import com.zhowin.nineimageview.adapter.ThreeListAdapter;
 import com.zhowin.nineimageview.model.NineImageList;
 import com.zhowin.nineimageview.model.SecondList;
 
@@ -18,32 +19,33 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 嵌套使用
+ * 第三方RecyclerViewAdapter
  */
-public class SecondActivity extends AppCompatActivity {
+public class ThreeActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<SecondList> secondLists = new ArrayList<>();
 
     public static void start(Context context) {
-        Intent intent = new Intent(context, SecondActivity.class);
+        Intent intent = new Intent(context, ThreeActivity.class);
         context.startActivity(intent);
+
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_three);
         recyclerView = findViewById(R.id.recyclerView);
         initDate();
         initViews();
-
     }
 
     private void initViews() {
-        SecondListAdapter secondListAdapter = new SecondListAdapter(secondLists, this);
+        ThreeListAdapter threeListAdapter = new ThreeListAdapter(secondLists);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(secondListAdapter);
+        recyclerView.setAdapter(threeListAdapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
     }
 

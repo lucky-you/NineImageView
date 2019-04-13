@@ -34,5 +34,18 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#f4f4f4" />
+    <TextView
+        android:id="@+id/tvTypeThree"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="第三方RecyclerViewAdapter"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f4f4f4" />
 
 </LinearLayout>

@@ -14,6 +14,7 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_index);
         findViewById(R.id.tvTypeOne).setOnClickListener(this);
         findViewById(R.id.tvTypeTwo).setOnClickListener(this);
+        findViewById(R.id.tvTypeThree).setOnClickListener(this);
     }
 
     @Override
@@ -24,6 +25,9 @@ public class IndexActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.tvTypeTwo:
                 SecondActivity.start(this);
+                break;
+            case R.id.tvTypeThree:
+                ThreeActivity.start(this);
                 break;
         }
     }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -23,17 +22,17 @@ public class SecondListAdapter extends RecyclerView.Adapter<SecondListAdapter.Vi
 
 
     private List<SecondList> dateList;
-    private Context mContent;
+    private Context mContext;
 
-    public SecondListAdapter(List<SecondList> data, Context mContent) {
+    public SecondListAdapter(List<SecondList> data, Context mContext) {
         this.dateList = data;
-        this.mContent = mContent;
+        this.mContext = mContext;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(View.inflate(mContent, R.layout.include_second_item_layout, null));
+        return new ViewHolder(View.inflate(mContext, R.layout.include_second_item_layout, null));
     }
 
     @Override
@@ -59,8 +58,8 @@ public class SecondListAdapter extends RecyclerView.Adapter<SecondListAdapter.Vi
 
         public void bind(int position) {
             tvTitle.setText(dateList.get(position).getTitle());
-            NineGridViewImageAdapter nineGridViewImageAdapter = new NineGridViewImageAdapter(dateList.get(position).getList(), mContent);
-            imageRecyclerView.setLayoutManager(new LinearLayoutManager(mContent));
+            NineGridViewImageAdapter nineGridViewImageAdapter = new NineGridViewImageAdapter(dateList.get(position).getList(), mContext);
+            imageRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
             imageRecyclerView.setAdapter(nineGridViewImageAdapter);
         }
     }
