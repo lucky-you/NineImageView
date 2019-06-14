@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 "https://pic3.zhimg.com/33c6cf59163b3f17ca0c091a5c0d9272_xll.jpg",
                 "https://pic3.zhimg.com/f6dc1c1cecd7ba8f4c61c7c31847773e_xll.jpg"
         )));
+
         nineImageLists.add(new NineImageList("9张图片", Arrays.asList(
                 "https://pic3.zhimg.com/33c6cf59163b3f17ca0c091a5c0d9272_xll.jpg",
                 "https://pic4.zhimg.com/52e093cbf96fd0d027136baf9b5cdcb3_xll.png",
